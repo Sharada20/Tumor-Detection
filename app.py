@@ -146,7 +146,7 @@ with col_upload:
         st.image(pil_image, use_container_width=True)
 
         st.markdown('<div class="run-btn-wrap">', unsafe_allow_html=True)
-        run_analysis = st.button("⚡ Run Diagnostic Analysis", use_container_width=True)
+        run_analysis = st.button("Run Diagnostic Analysis", use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
     else:
         st.markdown('''
@@ -263,6 +263,6 @@ with col_result:
 st.markdown('''
 <div class="footer">
   NeuroScan AI · Built with PyTorch & Streamlit · 
-  <span style="opacity:.5;">For research use only</span>
+
 </div>
 ''', unsafe_allow_html=True)
