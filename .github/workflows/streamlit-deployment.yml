@@ -1,0 +1,26 @@
+name: Streamlit Deployment Status
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-deployment-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create GitHub Deployment
+        uses: chrnorm/deployment-action@v2
+        id: deployment
+        with:
+          token: '${{ github.token }}'
+          environment-url: 'https://tumor-detection-stywd4znn3rjy4zhbyojcn.streamlit.app/'
+          environment: 'production'
+
+      - name: Update Deployment Status
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: '${{ github.token }}'
+          environment-url: 'https://tumor-detection-stywd4znn3rjy4zhbyojcn.streamlit.app/'
+          state: 'success'
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
