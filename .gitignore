@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Models and checkpoints
+*.pth
+*.pt
+*.onnx
+
+# TensorBoard logs
+runs/
+__pycache__/
+
+# Virtual environments
+venv/
+env/
+.env
+.venv/
+env.bak/
+venv.bak/
+
+# Project specifics
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Datasets and Preprocessed Data
+Training/
+Testing/
+data_preproc/

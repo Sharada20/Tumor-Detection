@@ -1,0 +1,341 @@
+/* =============================================
+   NeuroScan AI — Custom Streamlit Theme
+   Dark clinical aesthetic · Monospace details
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap');
+
+/* ── Base ── */
+html, body, [class*="css"] {
+  font-family: 'DM Mono', monospace;
+  background-color: #0a0d12 !important;
+  color: #c8d0dc !important;
+}
+
+.stApp {
+  background: linear-gradient(160deg, #0a0d12 0%, #0d1219 60%, #080b10 100%) !important;
+  min-height: 100vh;
+}
+
+/* ── Hide Streamlit chrome ── */
+#MainMenu, footer, header { visibility: hidden; }
+.block-container {
+  padding: 2rem 2.5rem 3rem !important;
+  max-width: 1300px !important;
+}
+
+/* ── Header ── */
+.header-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 0 0.8rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.brand-icon {
+  font-size: 2.6rem;
+  filter: drop-shadow(0 0 18px rgba(100,180,255,.45));
+}
+.brand-name {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #e8eef8;
+  line-height: 1;
+}
+.brand-name em {
+  font-style: normal;
+  color: #4da8ff;
+}
+.brand-tagline {
+  display: block;
+  font-size: 0.68rem;
+  color: #4a5568;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+.header-badge {
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #f59e0b;
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.3);
+  padding: 0.4rem 0.85rem;
+  border-radius: 4px;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #1e2a38, #2a3a4e, #1e2a38, transparent);
+  margin: 1rem 0 1.8rem;
+}
+
+/* ── Section labels ── */
+.section-label {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.65rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: #4a90d9 !important;
+  margin-bottom: 0.35rem !important;
+}
+.section-hint {
+  font-size: 0.72rem !important;
+  color: #3d4f63 !important;
+  margin-bottom: 0.8rem !important;
+}
+.img-label {
+  font-size: 0.62rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #3d4f63 !important;
+  margin-bottom: 0.3rem !important;
+}
+
+/* ── Upload widget ── */
+[data-testid="stFileUploader"] {
+  background: rgba(13,20,32,0.8) !important;
+  border: 1px dashed #1e3050 !important;
+  border-radius: 8px !important;
+  transition: border-color 0.2s;
+}
+[data-testid="stFileUploader"]:hover {
+  border-color: #4da8ff !important;
+}
+[data-testid="stFileUploader"] label { display: none !important; }
+
+.upload-placeholder {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #3d4f63;
+}
+.upload-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.upload-placeholder p { font-size: 0.82rem; line-height: 1.7; }
+
+/* ── Run button ── */
+.run-btn-wrap { margin-top: 1rem; }
+.stButton > button {
+  width: 100%;
+  background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%) !important;
+  color: #e8f0fe !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.05em !important;
+  padding: 0.75rem 1rem !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 20px rgba(21,101,192,.35) !important;
+}
+.stButton > button:hover {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%) !important;
+  box-shadow: 0 6px 28px rgba(21,101,192,.55) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ── Result card ── */
+.result-card {
+  background: rgba(10,16,24,0.9);
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.result-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: inherit;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: 0.3;
+}
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.result-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #4a5568;
+}
+.result-badge {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.28rem 0.9rem;
+  border-radius: 4px;
+  color: #fff;
+}
+.confidence-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.55rem;
+}
+.conf-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #e8eef8;
+  line-height: 1;
+}
+.conf-text {
+  font-size: 0.7rem;
+  color: #4a5568;
+  letter-spacing: 0.08em;
+}
+.conf-bar-bg {
+  height: 4px;
+  background: #111a26;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+.conf-bar-fg {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+.result-desc {
+  font-size: 0.78rem;
+  color: #7a8fa8;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Probability bars ── */
+.prob-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.55rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+.prob-top {
+  background: rgba(255,255,255,.03);
+  border-color: #1e2a3a;
+}
+.prob-name {
+  width: 90px;
+  font-size: 0.72rem;
+  color: #8a9ab8;
+  flex-shrink: 0;
+}
+.prob-bar-bg {
+  flex: 1;
+  height: 3px;
+  background: #111a26;
+  border-radius: 2px;
+}
+.prob-bar-fg {
+  height: 100%;
+  border-radius: 2px;
+  min-width: 2px;
+}
+.prob-pct {
+  width: 42px;
+  text-align: right;
+  font-size: 0.7rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+/* ── Empty state ── */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #2d3d52;
+}
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: grayscale(1) opacity(.4);
+}
+.empty-state p {
+  font-size: 0.85rem;
+  color: #3d4f63;
+  line-height: 1.7;
+}
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem auto 0;
+  max-width: 280px;
+  text-align: left;
+}
+.feature-list li {
+  font-size: 0.72rem;
+  color: #2d3d52;
+  padding: 0.3rem 0;
+  letter-spacing: 0.03em;
+}
+
+/* ── Disclaimer ── */
+.disclaimer {
+  margin-top: 1.2rem;
+  padding: 0.85rem 1rem;
+  background: rgba(245,158,11,.07);
+  border: 1px solid rgba(245,158,11,.2);
+  border-radius: 6px;
+  font-size: 0.72rem;
+  color: #c8a24a;
+  line-height: 1.6;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #0f1923;
+  font-size: 0.65rem;
+  color: #2a3748;
+  letter-spacing: 0.05em;
+}
+
+/* ── Streamlit images ── */
+[data-testid="stImage"] img {
+  border-radius: 7px;
+  border: 1px solid #131f2e;
+}
+
+/* ── Download button ── */
+[data-testid="stDownloadButton"] > button {
+  background: rgba(13,20,32,0.9) !important;
+  border: 1px solid #1e3050 !important;
+  color: #4da8ff !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.76rem !important;
+  border-radius: 6px !important;
+  transition: all 0.2s !important;
+}
+[data-testid="stDownloadButton"] > button:hover {
+  border-color: #4da8ff !important;
+  background: rgba(77,168,255,.08) !important;
+}
+
+/* ── Spinner ── */
+[data-testid="stSpinner"] { color: #4a90d9 !important; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #080b10; }
+::-webkit-scrollbar-thumb { background: #1e2a38; border-radius: 3px; }
