@@ -5,6 +5,7 @@ __pycache__/
 
 # Models and checkpoints
 *.pth
+!brain_tumor_model.pth
 *.pt
 *.onnx
 
