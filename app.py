@@ -13,7 +13,7 @@ warnings.filterwarnings("ignore")
 
 from preprocessing import full_pipeline
 
-# --- Page Configuration (must be first Streamlit call) ---
+#Page Config.
 st.set_page_config(
     page_title="NeuroScan AI · Tumor Diagnostics",
     page_icon="🧠",
@@ -21,7 +21,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# --- Load custom CSS ---
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
@@ -47,7 +46,6 @@ def load_model():
 def preprocess_image(pil_image: Image.Image, target_size=(224, 224)):
     model_input, meta = full_pipeline(pil_image, target_size=target_size, augment=False, return_intermediates=True)
     
-    # model_input shape is (1, H, W, 3) float32, we need (1, 3, H, W)
     img_tensor = torch.from_numpy(model_input.transpose((0, 3, 1, 2)))
     
     return img_tensor, Image.fromarray(meta["cropped"]), Image.fromarray(meta["seg_overlay"])
@@ -102,7 +100,7 @@ def overlay_heatmap(original_pil: Image.Image, heatmap: np.ndarray, alpha=0.45, 
 
     return Image.fromarray(overlay)
 
-# --- Constants ---
+# Constants 
 CLASS_LABELS = ["Glioma", "Meningioma", "No Tumor", "Pituitary"]
 CLASS_COLORS = {
     "Glioma":     "#FF4B4B",
@@ -116,10 +114,8 @@ CLASS_DESC = {
     "No Tumor":   "No evidence of a tumor mass detected in this scan. Recommend clinical correlation.",
     "Pituitary":  "Tumor of the pituitary gland. Usually benign adenoma; hormonal assessment advised.",
 }
-
-# ============================================================
 # UI
-# ============================================================
+
 
 st.markdown('''
 <div class="header-wrap">
@@ -184,7 +180,7 @@ with col_result:
                 st.error(f"Analysis failed: {e}")
                 st.stop()
 
-        # classification card
+        
         st.markdown(f'''
         <div class="result-card" style="border-color:{color};">
           <div class="result-header">
@@ -262,7 +258,7 @@ with col_result:
 
 st.markdown('''
 <div class="footer">
-  NeuroScan AI · Built with PyTorch & Streamlit · 
+  NeuroScan AI · Built with PyTorch & Streamlit 
 
 </div>
 ''', unsafe_allow_html=True)
